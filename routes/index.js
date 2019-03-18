@@ -1,7 +1,10 @@
-const express  = require("express"),
-      router   = express.Router(),
-      passport = require("passport"),
-      User  = require("../models/user");
+const express    = require("express"),
+      router     = express.Router(),
+      passport   = require("passport"),
+      User       = require("../models/user"),
+      middleware = require("../middleware");
+      
+const { isLoggedIn } = middleware;
       
 // ROOT ROUTE
 router.get("/", function(req, res){
@@ -57,6 +60,10 @@ router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Successfully Logged Out.");
    res.redirect("/");
+});
+
+router.get("/labs", isLoggedIn, function(req, res) {
+    res.send("You made it!")
 });
 
 module.exports = router;
