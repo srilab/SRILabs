@@ -68,3 +68,10 @@
     </section>
  
     <!--ADD AND CONFIGURE FLASH MESSAGES-->
+    <% if(error && error.length > 0) { %>
+       <div class="mt-5 alert alert-danger flash-msg"><p><%=error %></p></div>
+     <% } %>
+     
+     <% if(success && success.length > 0) { %>
+       <div class="alert alert-success flash-msg"><p><%= success %></p></div>
+     <% } %>

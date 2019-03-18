@@ -13,9 +13,12 @@ router.get("/register", function(req, res){
    res.render("register", {page: 'register'}); 
 });
 
-// HANDLE TEACHER REGISTER LOGIC
+// HANDLE REGISTER LOGIC
 router.post("/register", function(req, res){
-    console.log(req.body.type);
+    if(req.body.password !== req.body.passwordCheck) {
+        req.flash("error", "Whoops! Passwords Do Not Match. Please Try Again.");
+        res.redirect("/register");
+    }
     var newUser = new User({
         registrationKey: req.body.key, 
         email: req.body.email, 
@@ -28,7 +31,7 @@ router.post("/register", function(req, res){
             return res.render("register", {error: err.message});
         }
         passport.authenticate('local')(req, res, function () {
-            req.flash("success", "Welcome to SRI EnviroLabs " + req.body.username);
+            req.flash("success", "Welcome to SRI EnviroLabs " + req.body.username + "!");
             res.redirect('/');
         });
     });

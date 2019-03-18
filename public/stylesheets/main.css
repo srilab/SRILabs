@@ -248,3 +248,17 @@ a {
 .card-footer {
     padding-bottom: 1.75rem;
 }
+
+.flash-msg {
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding-top:0.2rem;
+    height: 2rem;
+    width: 35rem;
+}
+ 
+.flash-msg p {
+    max-width: 100%;
+}
