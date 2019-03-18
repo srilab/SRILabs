@@ -1,0 +1,250 @@
+body {
+    text-transform: uppercase;
+    font-size: 17px;
+    font-family: "Helvetica Neue", "Segoe UI", "sans-serif";
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    outline: none;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: white;
+    outline: none;
+}
+
+.logo-image {
+    display: block;
+    float: left;
+    z-index: 3;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.navbar-brand {
+    padding-left: 130px;
+}
+
+.bg-dark {
+    background-color: black!important;
+}
+
+.active, .nav-link:hover {
+    font-weight: bold;
+    color: #009CDE!important;
+}
+
+.dd-active {
+    font-weight: bold;
+}
+
+.text-white {
+    color: white;
+}
+
+#mission-statement {
+    background: black;
+    text-align: center;
+}
+
+#moving-image img {
+    width: 100%;
+    max-height: 250px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+@media(min-width: 1000px) {
+    #moving-image img {
+        max-height: 300px;
+    }
+
+    p {
+        max-width: 70%;
+    }
+}
+
+@media(min-width: 1250px) {
+    #moving-image img {
+        max-height: 400px;
+    }
+}
+
+.navbar-collapse {
+    padding-left: 140px;
+}
+
+.mr-auto, .mx-auto {
+    padding-left: 16px;
+}
+
+@media(min-width: 768px) {
+    .navbar-collapse {
+        padding-left: 0px;
+    }
+    .mr-auto, .mx-auto {
+        padding-left: 0px;
+    }
+}
+
+#data {
+    text-align: center;
+    min-height: 400px;
+}
+
+#data .row {
+    margin-top: 60px;
+}
+
+#data .btn {
+    margin-top: 10px;
+    border-radius: 0%;
+}
+
+.card {
+    border: none;
+}
+
+.card-body p {
+    font-size: 12px;
+}
+
+.card-body a {
+    background: #009CDE;
+}
+
+.card-body a:hover {
+    background-color: #006692;
+}
+
+#sri-info {
+    text-align: center;
+    background: black;
+}
+
+.about-sri {
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.sri-bio {
+    text-transform: none;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.btn-block {
+    background-color: #009CDE;
+    width: 18%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    border-radius: 0%;
+}
+
+.btn-block:hover {
+    background-color: #006692;
+}
+
+.blue {
+    color: #009CDE;
+}
+
+/* login page */
+
+.login-body {
+        background-image: url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80');
+        background-size: cover;
+        background-position: center;
+        /* height: 100%; */
+}
+
+.login-body .container {
+    height: 100%;
+    align-content: center;
+}
+
+.login-body .container .card {
+    height: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    width: 400px;
+    background-color: rgb(0, 0, 0) !important;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #009CDE;
+}
+
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #009CDE;
+    color: white;
+    border: 0 !important;
+}
+
+form p {
+    text-transform: capitalize;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: black;
+    background-color: #009CDE;
+    width: 100px;
+    text-transform: uppercase;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+a {
+    color: #009CDE;
+}
+
+.card-footer {
+    padding-bottom: 1.75rem;
+}
