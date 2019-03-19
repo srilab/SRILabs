@@ -2,6 +2,7 @@ const express    = require("express"),
       router     = express.Router(),
       passport   = require("passport"),
       User       = require("../models/user"),
+      Post       = require("../models/post"),
       middleware = require("../middleware");
       
 const { isLoggedIn } = middleware;
@@ -67,11 +68,48 @@ router.get("/labs", isLoggedIn, function(req, res) {
 });
 
 router.get("/blog", function(req, res) {
-    res.render("blog/index", {page: 'blog'})
+    Post.find({}, function(err, allPosts) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("blog/index", {posts: allPosts, page: 'blog'})
+        }
+    });
 });
 
 router.get("/blog/new", isLoggedIn, function(req, res) {
     res.render("blog/new", {page: 'newBlog'})
 });
+
+router.post("/blog", isLoggedIn, function(req, res) {
+    var title = req.body.title;
+    var description = req.body.description;
+    var body = req.body.post;
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    };
+    var newPost = {title: title, description: description, body: body, author: author};
+    Post.create(newPost, function(err, newBlog) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(newBlog);
+            res.redirect("/blog")
+        }
+    })
+});
+
+router.get("/blog/:id", function(req, res) {
+    Post.findById(req.params.id, function(err, foundBlog) {
+        if(err || !foundBlog) {
+            req.flash("Whoops! Blog post not found.");
+            res.redirect("/blogs");
+        } else {
+            console.log(foundBlog.body);
+            res.render("blog/show", {post: foundBlog, page: 'blog'});
+        }
+    });
+})
 
 module.exports = router;

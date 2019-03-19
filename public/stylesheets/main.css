@@ -306,3 +306,17 @@ textarea {
         padding: 2rem 1rem;
     }
 }
+
+.ui.top.attached.segment {
+    margin: 0 10rem;
+    width: auto;
+}
+
+.ui.basic.black.button:hover {
+    background-color: black!important;
+    color: white!important;
+}
+
+#delete {
+    display: inline;
+}
