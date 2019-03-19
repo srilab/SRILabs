@@ -63,7 +63,15 @@ router.get("/logout", function(req, res){
 });
 
 router.get("/labs", isLoggedIn, function(req, res) {
-    res.send("You made it!")
+    res.send("labs page");
+});
+
+router.get("/blog", function(req, res) {
+    res.render("blog/index", {page: 'blog'})
+});
+
+router.get("/blog/new", isLoggedIn, function(req, res) {
+    res.render("blog/new", {page: 'newBlog'})
 });
 
 module.exports = router;

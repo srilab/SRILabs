@@ -20,7 +20,7 @@
     
     <!-- <script src="main.js"></script> -->
 </head>
-<body class="<%= typeof page !== 'undefined' && page === 'register' || page === 'login' ? 'login-body' : '' %>">
+<body class="<%= typeof page !== 'undefined' && page === 'register' || page === 'login' || page === 'newBlog' ? 'login-body' : '' %>">
 
     <section id="header">
         <img class="logo-image" src="https://southernresearch.org/wp-content/themes/kronos/assets/img/southern-research-logo.jpg">
@@ -36,14 +36,14 @@
                     <li class="nav-item">
                         <a class="nav-link pr-3 <%= typeof page !== 'undefined' && page === 'home' ? 'active' : 'text-white' %>" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="<%= typeof page !== 'undefined' && page === 'data' ? 'nav-item active' : 'nav-item' %>">
-                        <a class="nav-link text-white pr-3" href="#">Data</a>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'data' ? 'active' : 'text-white' %>" href="#">Data</a>
                     </li>
-                    <li class="<%= typeof page !== 'undefined' && page === 'labs' ? 'nav-item active' : 'nav-item' %>">
-                        <a class="nav-link text-white" href="/labs">Labs</a>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'labs' ? 'active' : 'text-white' %>" href="/labs">Labs</a>
                     </li>
-                    <li class="<%= typeof page !== 'undefined' && page === 'blog' ? 'nav-item active' : 'nav-item' %>">
-                        <a class="nav-link text-white" href="#">Blog</a>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'blog' || page === 'newBlog' ? 'active' : 'text-white' %>" href="/blog">Blog</a>
                     </li>
                 </ul>
         

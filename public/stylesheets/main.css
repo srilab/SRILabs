@@ -1,7 +1,10 @@
 body {
-    text-transform: uppercase;
     font-size: 17px;
     font-family: "Helvetica Neue", "Segoe UI", "sans-serif";
+}
+
+#header {
+    text-transform: uppercase;
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -222,7 +225,7 @@ input:focus {
 }
 
 .login_btn {
-    color: black;
+    color: white;
     background-color: #009CDE;
     width: 100px;
     text-transform: uppercase;
@@ -261,4 +264,45 @@ a {
  
 .flash-msg p {
     max-width: 100%;
+}
+
+.jumbotron .btn {
+    background-color: #009CDE;
+}
+
+.jumbotron .container {
+    padding-left: 8rem;
+}
+
+textarea {
+    height: 10rem;
+    width: 100%;
+}
+
+.col-md-6 {
+    margin: 0 auto;
+}
+
+.col-md-6 h1 {
+    text-align: center;
+    margin-top:3rem;
+}
+
+.col-md-6 .form-group .btn {
+    width: 25%;
+}
+
+#new-blog {
+    width: 40rem;
+}
+
+#new-blog .login_btn {
+    width:auto;
+    margin: 2rem 42% 0 42%;
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
 }
