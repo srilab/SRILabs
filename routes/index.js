@@ -67,6 +67,8 @@ router.get("/labs", isLoggedIn, function(req, res) {
     res.send("labs page");
 });
 
+
+// ALL BLOGS
 router.get("/blog", function(req, res) {
     Post.find({}, function(err, allPosts) {
         if(err) {
@@ -77,10 +79,12 @@ router.get("/blog", function(req, res) {
     });
 });
 
+// NEW BLOG FORM
 router.get("/blog/new", isLoggedIn, function(req, res) {
     res.render("blog/new", {page: 'newBlog'})
 });
 
+// NEW BLOG POST
 router.post("/blog", isLoggedIn, function(req, res) {
     var title = req.body.title;
     var description = req.body.description;
@@ -100,16 +104,19 @@ router.post("/blog", isLoggedIn, function(req, res) {
     })
 });
 
+// SHOW BLOG
 router.get("/blog/:id", function(req, res) {
     Post.findById(req.params.id, function(err, foundBlog) {
         if(err || !foundBlog) {
             req.flash("Whoops! Blog post not found.");
             res.redirect("/blogs");
         } else {
-            console.log(foundBlog.body);
+            // console.log(foundBlog.body);
             res.render("blog/show", {post: foundBlog, page: 'blog'});
         }
     });
 })
+
+// 
 
 module.exports = router;
