@@ -13,7 +13,7 @@
                 <% posts.forEach(function(blog) { %>
                     <div class="item">
                         <div class="content">
-                            <a class="header" href="//blogs/<%= blog._id %>"><%= blog.title %></a>
+                            <a class="header" href="blog/<%= blog._id %>"><%= blog.title %></a>
                             <div class="meta">
                                 <span><%= blog.createdAt.toDateString() %></span>
                             </div>
