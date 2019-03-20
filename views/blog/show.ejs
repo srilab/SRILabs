@@ -25,17 +25,16 @@
     </div>
     <!--COMMENT SECTION START-->
     <div class="well">
-      <!--Setting up the add new comment button that is used for collapsing-->
-      <div class="text-right">
-        <a class="ui black basic button small pull-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new comment</a>
-      </div>
 
       <!--Comment section title-->
-      <h4><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
-
+      <h4 style="display:inline-block; float:left; margin-top:0.75rem"><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
+    <!--Setting up the add new comment button that is used for collapsing-->
+          <div class="text-right">
+            <a class="ui black basic button small pull-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new comment</a>
+          </div>
       <!--Collapse Add a comment form START-->
-      <div class="collapse" id="collapseComment">
+      <div class="collapse" style="margin-top:2rem"id="collapseComment">
         <div class="well">
             <% if(!currentUser) { %>
           <!--If the user is not logged in, direct him to the login page-->
@@ -86,7 +85,7 @@
           <!--Show when the comment was made-->
           <br>
           <span class="pull-right"><em><%= moment(comment.createdAt).fromNow() %></em></span>
-
+          <div style="height: 2rem"></div>
           <!--Printing the comment-->
           <p><%= comment.text %></p>
 
