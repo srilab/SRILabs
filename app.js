@@ -8,10 +8,12 @@ const express        = require("express"),
       flash          = require("connect-flash"),
       session        = require("express-session"),
       methodOverride = require("method-override"),
-      User        = require("./models/user");
+      User           = require("./models/user");
       
 // REQUIRING ROUTES
-var indexRoutes = require("./routes/index");
+var indexRoutes   = require("./routes/index"),
+    blogRoutes    = require("./routes/blog"),
+    commentRoutes = require("./routes/comment");
 
 // ASSIGN MONGOOSE PROMISE LIBRARY AND CONNECT TO DB
 mongoose.Promise = global.Promise;
@@ -54,6 +56,8 @@ app.use(function(req, res, next){
 });
 
 app.use("/", indexRoutes);
+app.use("/blog", blogRoutes),
+app.use("/blog/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("The SRIEnviroLabs Server Has Started!");
