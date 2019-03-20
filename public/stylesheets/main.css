@@ -308,8 +308,8 @@ textarea {
 }
 
 .ui.top.attached.segment {
-    margin: 0 10rem;
-    width: auto;
+    width: 85rem;
+    margin: 10rem auto;
 }
 
 .ui.basic.black.button:hover {
@@ -324,3 +324,8 @@ textarea {
 .ui.segment:last-child {
     height: auto;
 }
+
+.ui.main.text.container.segment {
+    margin-top: 10rem;
+}
+

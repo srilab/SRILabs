@@ -1,25 +1,12 @@
 <% include ../partials/header %> 
-
-     <header id="blog" class="jumbotron">
-         <div class="container">
-             <h1>EnviroLabs Blog</h1>
-             <!--<p>Learn more about data sensors and dive deeper into the information being collected!</p>-->
-             <p>
-                <a class="btn btn-primary btn-lg mt-3" href="/blog/new">Create Post</a>
-             </p>
-              <p>
-              <!--<form action="/blog" method="GET" class="form-inline" id="blog-search">-->
-              <!--  <div class="form-group">-->
-              <!--    <input type="text" name="search" placeholder="Search Blog..." class="form-control">-->
-              <!--  </div>-->
-              <!--</form>-->
-             </p>
-         </div>
-     </header>
      
      <div class="ui main text">
         <div class="ui top attached segment">
+            <!--<h1>EnviroLabs Blog</h1>-->
+                <a class="ui basic black button mt-4 float-right" href="/blog/new">Create Post</a>
             <div class="ui divided items">
+                <h1>EnviroLabs Blog</h1>
+                <!--<a class="btn btn-primary btn-lg mt-3 float-right" href="/blog/new">Create Post</a>-->
                 <% posts.forEach(function(blog) { %>
                     <div class="item">
                         <div class="content">
