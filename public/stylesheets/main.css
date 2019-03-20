@@ -320,3 +320,7 @@ textarea {
 #delete {
     display: inline;
 }
+
+.ui.segment:last-child {
+    height: auto;
+}

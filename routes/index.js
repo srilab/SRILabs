@@ -5,7 +5,7 @@ const express    = require("express"),
       Post       = require("../models/post"),
       middleware = require("../middleware");
       
-const { isLoggedIn } = middleware;
+const { isLoggedIn, checkUserPost } = middleware;
       
 // ROOT ROUTE
 router.get("/", function(req, res){
@@ -81,7 +81,7 @@ router.get("/blog", function(req, res) {
 
 // NEW BLOG FORM
 router.get("/blog/new", isLoggedIn, function(req, res) {
-    res.render("blog/new", {page: 'newBlog'})
+    res.render("blog/new", {page: 'blog'})
 });
 
 // NEW BLOG POST
@@ -117,6 +117,11 @@ router.get("/blog/:id", function(req, res) {
     });
 })
 
-// 
+// EDIT BLOG
+router.get("/blog/:id/edit", isLoggedIn, checkUserPost, function(req, res){
+    console.log(req.post._id);
+  //render edit template with that campground
+  res.render("blog/edit", {post: req.post, page: 'blog'});
+});
 
 module.exports = router;

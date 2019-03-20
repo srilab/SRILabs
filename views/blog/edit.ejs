@@ -6,24 +6,24 @@
                 <div class="d-flex justify-content-center h-100">
                     <div class="card" id="new-blog">
                         <div class="card-header">
-                            <h3 class="pt-3">New Blog Post</h3>
+                            <h3 class="pt-3">Edit <%= post.title %></h3>
                         </div>
                         <div class="card-body">
-                            <form action="/blog" method="post">
+                            <form action="/blog/<%=post._id%>?_method=PUT" method="post">
                                 <div class="form-group">
                                     <label class="text-white" for="title">Title</label>
-                                    <input type="text" class="form-control" placeholder="Blog Title" name="title">
+                                    <input type="text" class="form-control" value="<%= post.title %>" name="title">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-white" for="description">Description</label>
-                                    <input type="text" class="form-control" placeholder="Short Synopsis of Post" name="description">
+                                    <input type="text" class="form-control" value="<%= post.description %>" name="description">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-white" for="post">Post</label>
-                                    <textarea id="blogContent" required name="post">  Blog Post Goes Here</textarea>
+                                    <textarea required name="post">  <%= post.body %></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Create" class="btn login_btn">
+                                    <input type="submit" value="Submit" class="btn login_btn">
                                 </div>
                             </form>
                         </div>

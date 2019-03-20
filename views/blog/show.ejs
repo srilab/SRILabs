@@ -16,8 +16,8 @@
             </div>
             <br>
             <% if(currentUser && post.author.id.equals(currentUser._id)) { %>
-                <a class="ui black basic button" href="/blogs/<%= post._id %>/edit">Edit</a>
-                <form id="delete" action="/blogs/<%= post._id %>?_method=DELETE" method="POST">
+                <a class="ui black basic button" href="/blog/<%= post._id %>/edit">Edit</a>
+                <form id="delete" action="/blog/<%= post._id %>?_method=DELETE" method="POST">
                     <button class="ui black basic button">Delete Post</button>
                 </form>
             <% } %>
