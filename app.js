@@ -13,7 +13,8 @@ const express        = require("express"),
 // REQUIRING ROUTES
 var indexRoutes   = require("./routes/index"),
     blogRoutes    = require("./routes/blog"),
-    commentRoutes = require("./routes/comment");
+    commentRoutes = require("./routes/comment"),
+    labRoutes     = require("./routes/labs");
 
 // ASSIGN MONGOOSE PROMISE LIBRARY AND CONNECT TO DB
 mongoose.Promise = global.Promise;
@@ -57,7 +58,8 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/blog", blogRoutes),
-app.use("/blog/:id/comments", commentRoutes);
+app.use("/blog/:id/comments", commentRoutes),
+app.use("/labs", labRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("The SRIEnviroLabs Server Has Started!");

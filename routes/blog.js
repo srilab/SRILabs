@@ -61,6 +61,19 @@ router.get("/:id/edit", isLoggedIn, checkUserPost, function(req, res){
   res.render("blog/edit", {post: req.post, page: 'blog'});
 });
 
+router.put("/:id", isLoggedIn, checkUserPost, function(req, res){
+   var newData = {title: req.body.title, description: req.body.description, body: req.body.post}
+   Post.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, post){
+       if(err){
+          console.log(err);
+           res.render("edit");
+       } else {
+           req.flash("success","Successfully Updated Blog Post.");
+           res.redirect("/blog/" + req.params.id);
+       }
+   }); 
+});
+
 // DELETE - removes blog post and its comments from the database
 router.delete("/:id", isLoggedIn, checkUserPost, function(req, res) {
     Post.remove({

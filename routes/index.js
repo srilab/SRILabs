@@ -63,9 +63,4 @@ router.get("/logout", function(req, res){
    res.redirect("/");
 });
 
-// SHOW LABS
-router.get("/labs", isLoggedIn, function(req, res) {
-    res.send("labs page");
-});
-
 module.exports = router;

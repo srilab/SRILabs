@@ -1,0 +1,42 @@
+<% include ../partials/header %> 
+     
+     <div class="ui main text mx-5">
+        <div class="ui top attached segment">
+                <% if(currentUser && currentUser.type === "teacher") { %>
+                    <a class="ui basic black button mt-4 float-right" href="/labs">Find More Labs</a>
+                <% } else if(currentUser && currentUser.type === "student") { %>
+                    <!--<a class="ui basic black button mt-4 float-right" href="/blog/new">Create Post</a>-->
+                <% } %>
+            <div class="ui divided items">
+                <h1>My Labs</h1>
+                  <% if (currentUser.labs.length === 0) { %>
+                      <em style="color: grey;">No labs yet.</em>
+                  <% } %>
+                <!--<a class="btn btn-primary btn-lg mt-3 float-right" href="/blog/new">Create Post</a>-->
+                <% currentUser.labs.forEach(function(lab) { %>
+                    <div class="item">
+                        <div class="content">
+                            <a class="header" href="/labs/<%= lab._id %>"><%= lab.title %></a>
+                            <div class="description">
+                                <p><%- lab.description.substring(0,100) %>...</p>
+                            </div>
+                            <div class="extra">
+                                <a class="ui floated basic black button" href="/blog/<%= lab._id %>">
+                                    <% if(currentUser && currentUser.type === "Teacher") { %>
+                                        View Lab Key
+                                    <% } else { %>
+                                        Start Lab
+                                    <% } %>
+                                    <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+     
+     
+
+<% include ../partials/footer %>

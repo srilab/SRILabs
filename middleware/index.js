@@ -39,5 +39,18 @@ module.exports = {
            res.redirect('/blog/' + req.params.id);
        }
     });
+  },
+  isTeacher: function(req, res, next) {
+    if(req.isAuthenticated()) {
+      if(req.user.type === "teacher") {
+        return next();
+      } else {
+        req.flash('error', 'Whoops! You do not have permission to do that.');
+        res.redirect("labs");
+      }
+    } else {
+      req.flash('error', 'Whoops! You must be logged in to do that.');
+      res.redirect('/login');
+    }
   }
 }

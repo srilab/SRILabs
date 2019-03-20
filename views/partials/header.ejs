@@ -41,7 +41,11 @@
                         <a class="nav-link <%= typeof page !== 'undefined' && page === 'data' ? 'active' : 'text-white' %>" href="#">Data</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'labs' ? 'active' : 'text-white' %>" href="/labs">Labs</a>
+                        <% if(currentUser) { %>
+                            <a class="nav-link <%= typeof page !== 'undefined' && page === 'labs' ? 'active' : 'text-white' %>" href="/labs/<%= currentUser._id %>">Labs</a>
+                        <% } else { %>
+                            <a class="nav-link <%= typeof page !== 'undefined' && page === 'labs' ? 'active' : 'text-white' %>" href="/labs/no-id">Labs</a>
+                        <% } %>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <%= typeof page !== 'undefined' && page === 'blog' || page === 'newBlog' ? 'active' : 'text-white' %>" href="/blog">Blog</a>
