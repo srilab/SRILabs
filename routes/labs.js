@@ -8,11 +8,13 @@ const express    = require("express"),
       
 const { isLoggedIn, checkUserPost, isTeacher } = middleware;
 
-// SHOW LABS
+// SHOW LABS FOR USER
 router.get("/:id", isLoggedIn, function(req, res) {
     res.render("labs/currLabs", {labs: req.user.labs, page: 'labs'});
 });
 
+
+// SHOW ALL LABS
 router.get("/", isLoggedIn, isTeacher, function(req, res) {
     Labs.find({}, function(err, allLabs) {
         if(err) {
