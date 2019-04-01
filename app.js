@@ -9,7 +9,8 @@ const express        = require("express"),
       session        = require("express-session"),
       methodOverride = require("method-override"),
       User           = require("./models/user"),
-      mysql          = require("mysql");
+      mysql          = require("mysql"),
+      hooverData     = require("./sri_db");
       
 // REQUIRING ROUTES
 var indexRoutes   = require("./routes/index"),
@@ -28,31 +29,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb+srv://srienvirolabs:Alabama_stem_2019!@cluster0-fcfqg.mongodb.net/test?retryWrites=true", { useNewUrlParser: true })
     .then(() => console.log(`Database connected`))
     .catch(err => console.log(`Database connection error: ${err.message}`));
-    
-var mysqlConnection = mysql.createConnection({
-    host: "particle.wirelessrewired.com",
-    database: "forest_data",
-    user: "uaSTEM",
-    password: "uaSTEM2019!"
-})
-
-mysqlConnection.connect(function(err) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("MySQL Database Connected");
-    }
-});
-
-mysqlConnection.query("SELECT * FROM forest_data", function(err, results, fields) {
-    if(err) {
-        console.log(err);
-    } else {
-        results.forEach(result => {
-            console.log(result);
-        });
-    }
-});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -80,6 +56,7 @@ app.use(function(req, res, next){
   res.locals.currentUser = req.user;
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
+  res.locals.db = hooverData;
   next();
 });
 
