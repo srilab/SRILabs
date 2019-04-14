@@ -329,3 +329,23 @@ textarea {
     margin-top: 10rem;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+
