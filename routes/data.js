@@ -1,4 +1,5 @@
 const express    = require("express"),
+      request    = require("request"),
       router     = express.Router(),
       passport   = require("passport"),
       User       = require("../models/user"),
@@ -55,19 +56,36 @@ router.get("/5c92953b1c9d440000c847bf", function(req, res) {
                                     console.log(err);
                                 } else {
                                     var heat_index = results[0].heat_index;
-                                    hooverData.query("SELECT dust FROM hh_airquality LIMIT 1", function(err, results, fields) {
+                                    hooverData.query("SELECT dewpoint FROM hh_airquality LIMIT 1", function(err, results, fields) {
                                         if(err) {
                                             console.log(err);
                                         } else {
-                                            var dust = results[0].dust;
-                                            hooverData.query("SELECT humidity FROM hh_airquality LIMIT 1", function(err, results, fields) {
-                                                if(err) {
-                                                    console.log(err);
-                                                } else {
-                                                    var humidity = results[0].humidity;
-                                                    res.render("data/air_qual", {data: foundData, page: 'data', coordinates: coords, temp: temp, heat_index: heat_index, dust: dust, humidity: humidity});
-                                                }
-                                            });
+                                            var dewpoint = results[0].dewpoint;
+                                            hooverData.query("SELECT dust FROM hh_airquality LIMIT 1", function(err, results, fields) {
+                                            if(err) {
+                                                console.log(err);
+                                            } else {
+                                                var dust = results[0].dust;
+                                                hooverData.query("SELECT humidity FROM hh_airquality LIMIT 1", function(err, results, fields) {
+                                                    if(err) {
+                                                        console.log(err);
+                                                    } else {
+                                                        var humidity = results[0].humidity;
+                                                        request("https://soco.wirelessrewired.com/php/getAfricaDataJSON.php", function(error, response, body) {
+                                                            if(!error && response.statusCode === 200) {
+                                                                const data = JSON.parse(body);
+                                                                var i = data.length-1;
+                                                                var aCoordinates = "latitude: " + data[i]["latitude"] + " longitude: " + data[i]["longitude"];
+                                                                res.render("data/air_qual", {data: foundData, page: 'data', 
+                                                                    hCoordinates: coords,       hTemp: temp,              hHeat_index: heat_index,            hDust: dust,            hHumidity: humidity,            hDewpoint: dewpoint,
+                                                                    aCoordinates: aCoordinates, aTemp: data[i]["temp_f"], aHeat_index: data[i]["heat_index"], aDust: data[i]["dust"], aHumidity: data[i]["humidity"], aDewpoint: data[i]["dewpoint"]
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
                                         }
                                     });
                                 }

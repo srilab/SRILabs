@@ -10,7 +10,8 @@ const express        = require("express"),
       methodOverride = require("method-override"),
       User           = require("./models/user"),
       mysql          = require("mysql"),
-      hooverData     = require("./sri_db");
+      hooverData     = require("./sri_db"),
+      request        = require("request");
       
 // REQUIRING ROUTES
 var indexRoutes   = require("./routes/index"),
@@ -65,6 +66,13 @@ app.use("/blog", blogRoutes);
 app.use("/blog/:id/comments", commentRoutes);
 app.use("/labs", labRoutes);
 app.use("/data", dataRoutes);
+
+// request("https://soco.wirelessrewired.com/php/getAfricaDataJSON.php", function(error, response, body) {
+//     if(!error && response.statusCode === 200) {
+//         const data = JSON.parse(body);
+//         console.log(data[0]["latitude"]);
+//     }
+// });
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("The SRIEnviroLabs Server Has Started!");
