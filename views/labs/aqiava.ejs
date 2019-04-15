@@ -1,20 +1,15 @@
 <% include ../partials/header %>
 
 <div class="ui main text mx-5 segment" style="margin-top:10rem">
-    <div class="ui huge header"><%= data.title %></div>
     <div class="ui top attached">
-            </div>
-            <br>
-            <div class="description">
                 <p>
-                    This data describes the condition of the air, including chemical, physical, and biological characteristics. 
-                    Currently, there are two sensors that detect this data - one is located in Hoover, Alabama and the other is located in Africa.
-                    The ten most recent data points for each sensor are listed in the tables below.
-                </p>
-            </div>
-            <br>
-            <div>
-                <p>
+                    <div>
+                        <a style="font-size:20px" target="_blank" href="https://docs.google.com/document/d/1AEhhMEEZ0nxSMcl24VFE0uCTFG3fND4koHSbjX7m8CA/edit?usp=sharing">Air Quality in Africa versus Alabama</a>
+                        <br>
+                        This lab explores a variety of data from a sensor placed inside a kitchen in Uganda and a sensor in Hoover, AL. It allows students to practice critical thinking, conversions, and calculations skills in order to encorporate a wide variety of scientific disciplines. 
+                        For this lab, students should use the data and the calculator below in order to see the correlations between dewpoint, humidity, and temperature. 
+                    </div>
+                    <br>
                     <div class="title">Hoover Data</div>
                     <table>
                         <tr>
@@ -220,25 +215,20 @@
                             <td><%= aDewpoint10 %></td>
                         </tr>
                     </table>
-                </p>
-                <div class="title" style="font-size: 20px; margin-top:30px">Related Labs</div>
-                <hr>
-                <p>
                     <br>
-                    <div>
-                        <a target="_blank" href="https://docs.google.com/document/d/1AEhhMEEZ0nxSMcl24VFE0uCTFG3fND4koHSbjX7m8CA/edit?usp=sharing">Air Quality in Africa versus Alabama</a>
-                        <br>
-                        This lab explores a variety of data from a sensor placed inside a kitchen in Uganda and a sensor in Hoover, AL. It allows students to practice critical thinking, conversions, and calculations skills in order to encorporate a wide variety of scientific disciplines. 
-                        For this lab, students should use the calculator below in order to see the correlations between dewpoint, humidity, and temperature. 
-                    </div>
-                    <br>
+                    <div class="title">Dewpoint Calculator</div>
+                    <iframe src="https://www.calculator.net/dew-point-calculator.html" width="500px" height="500px" style="border:5px solid #009CDE; padding: 5px"></iframe>
                 </p>
             </div>
             <br>
             <div class="extra">
-            <a class="ui floated basic black button" href="/data">
+            <a class="ui floated basic black button" href="/labs/<%= currentUser._id %>">
                 <i class="left chevron icon"></i>
                 Go Back
+            </a>
+            <a class="ui floated basic black button" href="https://docs.google.com/document/d/1AEhhMEEZ0nxSMcl24VFE0uCTFG3fND4koHSbjX7m8CA/edit?usp=sharing" target="_blank" style="display:inline;">
+                View Lab
+                <i class="right chevron icon"></i>
             </a>
         </div>
         </div>

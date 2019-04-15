@@ -6,9 +6,28 @@
             <div class="ui divided items">
                 <h1>All Labs</h1>
                 <% if (labs.length === 0) { %>
-                      <em style="color: grey;">No labs yet.</em>
+                      <!--<em style="color: grey;">No labs yet.</em>-->
                   <% } %>
                 <!--<a class="btn btn-primary btn-lg mt-3 float-right" href="/blog/new">Create Post</a>-->
+                    <div class="item">
+                        <div class="content">
+                            <a class="header" href="/labs/aqiava">Air Quality in Africa versus Alabama</a>
+                            <div class="meta">
+                            </div>
+                            <div class="description">
+                                <% 
+                                    var desc = "This lab explores a variety of data from a sensor placed inside a kitchen in Uganda and a sensor in Hoover, AL. It allows students to practice critical thinking, conversions, and calculations skills in order to encorporate a wide variety of scientific disciplines. For this lab, students should use the calculator below in order to see the correlations between dewpoint, humidity, and temperature.";
+                                %>
+                                <p><%- desc.substring(0,100) %>...</p>
+                            </div>
+                            <div class="extra">
+                                <a class="ui floated basic black button" href="/labs/aqiava">
+                                    View Lab
+                                    <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 <% labs.forEach(function(lab) { %>
                     <div class="item">
                         <div class="content">
