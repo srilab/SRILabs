@@ -25,7 +25,7 @@ hooverData.connect(function(err) {
     }
 });
 
-router.get("/aqiava", function(req, res) {
+router.get("/aqiava", isLoggedIn, function(req, res) {
             hooverData.query("SELECT latitude, longitude FROM hh_airquality ORDER BY timestamp DESC LIMIT 10", function(err, results, fields) {
                 if(err) {
                     console.log(err);
